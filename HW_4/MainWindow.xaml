@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HW_4"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid>
-        <Button Content="Кнопочка" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="200"/>
+        Title="Секретная разработка №3" Height="200" Width="300">
+    <Grid VerticalAlignment="Center">
 
+        <local:ToggleButton x:Name="MyToggleButton"
+                            FontSize="14"
+                            Width="150" 
+                            Height="50" 
+                            Background="Red"/>
     </Grid>
 </Window>
