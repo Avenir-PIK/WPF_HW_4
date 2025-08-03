@@ -1,24 +1,45 @@
-﻿using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HW_4
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public class ToggleButton : Button
     {
-        public MainWindow()
+        public static SolidColorBrush greenBrush = new SolidColorBrush(Colors.Green);
+        public static SolidColorBrush redBrush = new SolidColorBrush(Colors.Red);
+        
+        public static readonly DependencyProperty ClickToggleProperty =
+            DependencyProperty.Register(
+                "ToggleCount",
+                typeof(bool),
+                typeof(ToggleButton),
+                new FrameworkPropertyMetadata(
+                    false,
+                    FrameworkPropertyMetadataOptions.None,
+                    OnClickToggleChanged));
+
+        public bool ToggleTrueFalse
         {
-            InitializeComponent();
+            get => (bool)GetValue(ClickToggleProperty);
+            set => SetValue(ClickToggleProperty, value);
+        }
+
+        private static void OnClickToggleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var button = (ToggleButton)d;
+            bool newValue = (bool)e.NewValue;
+
+            button.Content = newValue == false ? "ВЫКЛ." : $"ВКЛ.";
+            button.Background = newValue == false ? redBrush : greenBrush;
+        }
+
+        public ToggleButton()
+        {
+            Content = "ВЫКЛ.";
+            Background = redBrush;
+            
+            Click += (sender, e) => ToggleTrueFalse = !ToggleTrueFalse;
         }
     }
 }
