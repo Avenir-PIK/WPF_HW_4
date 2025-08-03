@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="450" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Кнопочка" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="200"/>
+        <Button Content="Кнопочка!" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="200"/>
 
     </Grid>
 </Window>
